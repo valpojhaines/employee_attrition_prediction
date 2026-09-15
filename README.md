@@ -85,7 +85,6 @@ The notebook includes an interactive classification-threshold visualization. Use
 * NumPy
 * scikit-learn
 * Matplotlib
-* Seaborn
 * Jupyter Notebook
 * ipywidgets
 * ipympl
