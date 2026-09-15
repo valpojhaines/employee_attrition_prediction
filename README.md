@@ -50,7 +50,7 @@ Holding other variables constant:
 * A one-point increase in **Job Satisfaction** was associated with approximately **22.5% lower odds** of attrition.
 * Each additional year at the company was associated with approximately **11.5% lower odds** of attrition.
 * **Overtime** was associated with approximately **17.9% higher odds** of attrition.
-* **Distance From Home** was associated with approximately **4.5% higher odds per unit of distance**.
+* **Distance From Home** was associated with approximately **4.5% higher odds per additional mile**.
 
 These results represent model associations rather than causal relationships.
 
@@ -71,6 +71,26 @@ Changing the threshold changes the balance between false positives and false neg
 The 20% threshold identifies the largest proportion of actual attrition cases, while the 50% threshold is more conservative and produces higher precision but substantially lower recall.
 
 The appropriate threshold ultimately depends on the relative business costs of false positives and false negatives.
+
+## Regularization and Model Selection
+
+To investigate whether regularization could improve model generalization, I compared L1 and L2 regularized logistic regression across multiple values of C using 5-fold cross-validation.
+
+L1 regularization can shrink some coefficients to zero, providing a form of feature selection.
+L2 regularization shrinks coefficients toward zero while generally retaining all predictors.
+The C parameter controls the strength of regularization. Smaller values apply stronger regularization.
+
+The grid search selected:
+
+Penalty: L1
+C: 1
+Solver: liblinear
+Cross-validation: 5-fold
+Scoring metric: recall
+
+The best cross-validation recall score was approximately 0.286.
+
+The selected model was then evaluated separately on the held-out test set. This separation between cross-validation model selection and final test evaluation helps prevent the test data from influencing the model-selection process.
 
 ## Interactive Visualization
 
