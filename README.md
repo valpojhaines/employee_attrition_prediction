@@ -76,7 +76,7 @@ The appropriate threshold ultimately depends on the relative business costs of f
 
 The notebook includes an interactive classification-threshold visualization. Users can adjust the threshold and observe the predicted classifications, confusion matrix, and evaluation metrics update in real time.
 
-![Interactive Threshold Analysis](images/threshold_analysis.png)
+![Interactive Threshold Analysis](employee_attrition_prediction/logistic_regression_prediction_widget.png)
 
 ## Technologies
 
